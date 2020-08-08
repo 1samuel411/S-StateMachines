@@ -39,14 +39,14 @@ The CanEnter method on the current state, will either accept or deny the state c
 This asset is dependent on [Odin Inspector](https://odininspector.com/), a premium Unity Asset which allows you to customize the editor/insepctor as well as provide a serialization library. 
 
 
-# Example Project
-This example project is built to give you an example of how you can drive your game content using state machines.
+# Example Uses
+This example is to give you an idea of how you can drive your game content using state machines.
 
-The Scenes in this project are,
+The Scenes,
 - Game (Empty scene that is initialized with all the prefabs defined in our ReferenceManager scriptable object)
 - Level1 (A scene with a Main Camera, SpawnPoint, and Platforms)
 
-Three state machines are used in this project
+Three state machines,
 - Core Game
   - Initialize
   - Splash Screen
@@ -61,3 +61,5 @@ Three state machines are used in this project
   - Sprint
   - Jump
   - Falling
+
+I am working on implementing this exact layout in my current game and will provide an example project when possible.
