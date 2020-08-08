@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2454abd282fcf18409fa4951a7f854de, type: 3}
+  m_Name: State Machine
+  m_EditorClassIdentifier: 
+  cachedName: State Machine
+  cachedNamespace: Example.States
+  cachedDefaultState: None
+  namespaceName: Example.States
+  states:
+  - controller: {fileID: 11400000}
+    id: 1
+    defaultState: 0
+    name: State A
+  - controller: {fileID: 11400000}
+    id: 2
+    defaultState: 0
+    name: State B
+  generatedStates:
+  - controller: {fileID: 11400000}
+    id: 1
+    defaultState: 0
+    name: State A
+  - controller: {fileID: 11400000}
+    id: 2
+    defaultState: 0
+    name: State B
