@@ -1,6 +1,6 @@
 # S-StateMachines
 
-S-StateMachines is a tool and workflow for State Machines in C# and Unity.
+S-StateMachines is a tool and workflow for creating State Machines in C# and Unity.
 
 ## Code Generation
 - Create a root folder in the path of the ScriptableStateController named, <INSERTNAME>Scripts'.  
