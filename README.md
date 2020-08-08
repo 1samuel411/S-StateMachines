@@ -17,14 +17,22 @@ The asset supports refactoring for,
 - Renaming/Deleting/Adding states
 
 ## How to create a Scriptable State Machine
-To create a Scriptable State Machine, select Create/SLibrary/Scriptable State Object.
+To create a Scriptable State Machine, select Create/SLibrary/Scriptable State Object. The name assigned to this file is the name of the state machine.
 
-Select the 
+Select the scriptable object and populate it with the states and specify the namespace for this machine.
+
+Select the refresh icon to get the list of new changes, and then select the checkmark to apply your changes. 
+
+The Undo button will not undo once you've applied your changes. Use source control to ensure no loss of state scripts if deleting.
+
+## What Scripts should I interact with?
+The Controller script and all state scripts are all interactable. The BaseController script is the only script that should not be used as it is regenerated every time.
 
 ## Example State Machine
 ![Example](http://samuelarminana.com/u/10cf2f31e-c5cb-44cd-b140-0fb14f19a308.png)
 
 ### Process going from State A to State B
+The CanEnter method on the current state, will either accept or deny the state change, if its accepted the OnExit method will be called for the current state, followed by OnEnter on the next state which will now become the current state.
 ![Flow](http://samuelarminana.com/u/1bb192819-345f-4bce-b206-84116683e9d8.png)
 
 # Dependencies
