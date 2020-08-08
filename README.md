@@ -38,6 +38,8 @@ The CanEnter method on the current state, will either accept or deny the state c
 # Dependencies
 This asset is dependent on [Odin Inspector](https://odininspector.com/), a premium Unity Asset which allows you to customize the editor/insepctor as well as provide a serialization library. 
 
+Because this is a premium asset it is excluded from this source code. Please purchase and install the asset to use it.
+
 
 # Example Uses
 This example is to give you an idea of how you can drive your game content using state machines.
