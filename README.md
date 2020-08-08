@@ -29,7 +29,7 @@ The Undo button will not undo once you've applied your changes. Use source contr
 The Controller script and all state scripts are all interactable. The BaseController script is the only script that should not be used as it is regenerated every time.
 
 ## Example State Machine
-![Example](http://samuelarminana.com/u/10cf2f31e-c5cb-44cd-b140-0fb14f19a308.png)
+![Example](http://samuelarminana.com/u/15487c064-fd6d-4f65-8ce1-0aa7666ae706.png)
 
 ### Process going from State A to State B
 The CanEnter method on the current state, will either accept or deny the state change, if its accepted the OnExit method will be called for the current state, followed by OnEnter on the next state which will now become the current state.
