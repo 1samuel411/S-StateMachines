@@ -250,6 +250,7 @@ namespace SLibrary.StateMachines.ScriptableController
             }
             #endregion
 
+
             // Iterate through the states
             for (int i = 0; i < controller.states.Count; i++)
             {
@@ -260,7 +261,18 @@ namespace SLibrary.StateMachines.ScriptableController
                 {
                     #region UPDATE STATE
                     Debug.Log("[Generation] ...Updating " + controller.states[i].name + "State File... Namespace Changed: " + namespaceChanged + ", Name Changed: " + nameChanged);
+                    
                     string stateName = controller.states[i].name.Replace(" ", "") + "State";
+                    string cachedStateName = controller.generatedStates[generatedStateIndex].name.Replace(" ", "") + "State";
+
+                    // Update file name if name changed
+                    if(stateName != cachedStateName)
+                    {
+                        string oldPath = statesFolderPath + cachedStateName + ".cs";
+                        string newPath = statesFolderPath + stateName + ".cs";
+                        File.Move(oldPath, newPath);
+                    }
+
                     string stateNamePath = statesFolderPath + stateName + ".cs";
                     string stateContent = File.ReadAllText(stateNamePath);
                     // Update namespaces
@@ -268,11 +280,17 @@ namespace SLibrary.StateMachines.ScriptableController
                     {
                         stateContent = stateContent.Replace("namespace " + previousNamespace, "namespace " + controller.namespaceName);
                     }
+                    // Update State Machine nmae
                     if (nameChanged)
                     {
                         string previousNameRaw = previousName.Replace(" ", "");
                         stateContent = stateContent.Replace("Base" + previousNameRaw + "State", "Base" + controllerName + "State");
                         stateContent = stateContent.Replace("(" + previousNameRaw + "States", "(" + controllerName + "States");
+                    }
+                    // Update State name
+                    if (stateName != cachedStateName)
+                    {
+                        stateContent = stateContent.Replace(cachedStateName, stateName);
                     }
                     File.WriteAllText(stateNamePath, stateContent);
                     controller.generatedStates[generatedStateIndex] = controller.states[i];
@@ -300,10 +318,13 @@ namespace SLibrary.StateMachines.ScriptableController
                 controller.generatedStates.Add(controller.states[i]);
                 Debug.Log("[Generation] !State Already exists" + controller.states[i].name + "!");
                 #endregion
+
             }
 
 
             await Task.Delay(1000);
+
+            AssetDatabase.Refresh();
         }
     }
 }
