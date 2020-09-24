@@ -1,6 +1,6 @@
 # S-StateMachines
 
-S-StateMachines is a tool and workflow for State Machines in C# and Unity.
+S-StateMachines is a tool and workflow for creating State Machines in C# and Unity.
 
 ## Code Generation
 - Create a root folder in the path of the ScriptableStateController named, <INSERTNAME>Scripts'.  
@@ -14,7 +14,7 @@ During re-generation the only scripts that will be regenerated is the BaseContro
 The asset supports refactoring for,
 - Renaming the state machine
 - Renaming the namespace
-- Renaming/Deleting/Adding states
+- Renaming/Deleting/Adding/Changing default states
 
 ## How to create a Scriptable State Machine
 To create a Scriptable State Machine, select Create/SLibrary/Scriptable State Object. The name assigned to this file is the name of the state machine.
@@ -25,14 +25,19 @@ Select the refresh icon to get the list of new changes, and then select the chec
 
 The Undo button will not undo once you've applied your changes. Use source control to ensure no loss of state scripts if deleting.
 
+A default state does NOT need to be specified, if no default state is specified it will begin in the **None** state.
+
 ## What Scripts should I interact with?
 The Controller script and all state scripts are all interactable. The BaseController script is the only script that should not be used as it is regenerated every time.
 
 ## Example State Machine
+This example named StateMachine, has two states, StateA and StateB, with no default state. It is within the namespace Example.States.
+
 ![Example](http://samuelarminana.com/u/15487c064-fd6d-4f65-8ce1-0aa7666ae706.png)
 
 ### Process going from State A to State B
 The CanEnter method on the current state, will either accept or deny the state change, if its accepted the OnExit method will be called for the current state, followed by OnEnter on the next state which will now become the current state.
+
 ![Flow](http://samuelarminana.com/u/1bb192819-345f-4bce-b206-84116683e9d8.png)
 
 # Dependencies
