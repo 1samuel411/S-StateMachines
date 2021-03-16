@@ -5,6 +5,36 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    RecentlyUsedScenePath-0:
+      value: 22424703114646680c031c2e153010231512162f3f670932272c1e27d1e53a2bebe931a6ce373e3b3c36fd3d07350831f5353d0ae40c0f1f3e00c90614d91c0a5fd016cc0ed1
+      flags: 0
+    RecentlyUsedScenePath-1:
+      value: 22424703114646680c031c2e153010231512162f3f67113f3f251900e7ee2731ece079daf228393d3a07db2e053d0a36fc0d471ef8021e12
+      flags: 0
+    RecentlyUsedScenePath-2:
+      value: 22424703114646680c031c2e153010231512162f3f670932272c1e27d1e53a2bebe931a6c83835393a16db2e053d0a36fc0d471ef8021e12
+      flags: 0
+    RecentlyUsedScenePath-3:
+      value: 22424703114646680c031c2e153010231512162f3f67113f3f251900e7ee2731ece079c4e82e36333736fd3d07350831f5441c05ff1f13
+      flags: 0
+    RecentlyUsedScenePath-4:
+      value: 22424703114646680c031c2e153010231512162f3f67113f3f251900e7ee2731ece079daf73b2b35380ec23d1401253afc190c34d40a0607360ff00b5fea1e1a05dc
+      flags: 0
+    RecentlyUsedScenePath-5:
+      value: 22424703114646680c031c2e153010231512162f3f670932272c1e27d1e53a2bebe931a6ce373e3b3c36fd3d07350831f5352a04fa0418021f09ae2a5fea1e1a05dc
+      flags: 0
+    RecentlyUsedScenePath-6:
+      value: 22424703114646680c031c2e153010231512162f3f670932272c1e27d1e53a2bebe931a6ce373e3b3c36fd3d07350831f5352404e20205053416e90b1ffb5e061fcc0cdc
+      flags: 0
+    RecentlyUsedScenePath-7:
+      value: 22424703114646680c031c2e153010231512162f3f670932272c1e27d1e53a2bebe931a6ce373e3b3c36fd3d07350831f5353f02f20e05450400f41a08
+      flags: 0
+    RecentlyUsedScenePath-8:
+      value: 22424703114646680e0b0227036c72111f19563f22213229
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 224247031146466f020100315f10122302160c2f0129253824271820adc52c39eff73aecb6750c3f3c0cea2f4b190032f7441c05ff1f13
+      flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
@@ -15,5 +45,7 @@ EditorUserSettings:
   m_SemanticMergeMode: 2
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
-  m_VCOverlayIcons: 1
+  m_VCProjectOverlayIcons: 1
+  m_VCHierarchyOverlayIcons: 1
+  m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 0

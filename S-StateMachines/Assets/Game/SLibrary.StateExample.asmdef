@@ -1,0 +1,15 @@
+{
+    "name": "StateMachines",
+    "references": [
+        "GUID:468c8c1af5fd71f48b70eba93d011aea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
