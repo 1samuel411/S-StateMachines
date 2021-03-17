@@ -55,7 +55,7 @@ This example is to give you an idea of how you can drive your game content using
 - InstancedScriptableObject (Creates instances of singleton scriptable objects, used to manage the GameProperties, consisting of any configurations or references used in the game)
 - Model-View-Controller UI (Based on my original implementation here https://samuelarminana.com/index.php/2019/02/11/mvc-in-unitys-ui/)
 - Game Starter (Automatically detects what level is opened when the game starts in the editor and creates the Managers and UI utilizing Runtime Initialize On Load Method)
-- Unity Editor Fast Play Mode (No Domain Reloading or Scene Reloading)
+- Unity Editor Quick Play Mode (No Domain Reloading or Scene Reloading, https://blogs.unity3d.com/2019/11/05/enter-play-mode-faster-in-unity-2019-3/)
 
 The game example is powered by only two state machines, Game State Machine and Character State Machine, shown here,
 
