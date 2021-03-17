@@ -48,7 +48,7 @@ Because this is a premium asset it is excluded from this source code. Please pur
 
 
 # Sample Project
-![1b9d2d556-a29f-4d63-80cf-b9af8c3fb521](https://user-images.githubusercontent.com/79631955/111406659-11227d00-86a9-11eb-8df5-970b5fed6c38.gif)
+![ezgif-6-792639df01fa](https://user-images.githubusercontent.com/1653929/111410752-b4769080-86af-11eb-9351-34efcd4471c0.gif)
 
 This example is to give you an idea of how you can drive your game content using state machines. This example project comes with a few other features used commonly in my workflow,
 - Bindable (Used to bind the lives and score values to a refresh delegate used by the UI to trigger an update)
