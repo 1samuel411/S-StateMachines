@@ -1,7 +1,10 @@
 {
-    "name": "StateMachines",
+    "name": "SLibrary.StateExample",
     "references": [
-        "GUID:468c8c1af5fd71f48b70eba93d011aea"
+        "GUID:0658f62ab975df04b856104a5bee327b",
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:f1e6f65de93b84c4081a1fc5d68584d3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

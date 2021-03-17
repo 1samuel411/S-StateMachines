@@ -6,12 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Tools/S-StateMachines/Example1/Scenes/Game.unity
+    path: Assets/Game/Scenes/Menu.unity
     guid: d8be310cb428bbc4580fe41aa75bfd99
   - enabled: 1
-    path: Assets/Tools/S-StateMachines/Example1/Scenes/Level1.unity
+    path: Assets/Game/Scenes/Level1.unity
     guid: 38a6ad8e00c2eca429ad0dfb1b6d0254
   - enabled: 1
-    path: Assets/Tools/S-StateMachines/Example1/Scenes/Level2.unity
+    path: Assets/Game/Scenes/Level2.unity
     guid: ca4a4cf9f5257d14cb863d6ed85065c3
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Game/Scenes/Level3.unity
+    guid: 026fe908cbbf7fb4da91dc8b76ca886f
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 8cc1c22b732eee74994f41d36682192b, type: 2}
