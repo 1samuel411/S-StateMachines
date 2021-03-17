@@ -10,6 +10,16 @@
 /S-StateMachines/[Ll]ogs/
 /S-StateMachines/[Mm]emoryCaptures/
 /S-StateMachines/Assets/ThirdParty/
+/S-StateMachines/Assets/Plugins/
+S-StateMachines/[Ll]ibrary/
+S-StateMachines/[Tt]emp/
+S-StateMachines/[Oo]bj/
+S-StateMachines/[Bb]uild/
+S-StateMachines/[Bb]uilds/
+S-StateMachines/[Ll]ogs/
+S-StateMachines/[Mm]emoryCaptures/
+S-StateMachines/Assets/ThirdParty/
+S-StateMachines/Assets/Plugins/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
