@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// Sets the speed to the walking speed. Listens for left shift to sprint, space to jump, and not grounded to fall.
     /// </summary>
     public class WalkingState : BaseCharacterStateMachineState
     {
@@ -16,6 +16,7 @@ namespace SLibrary.StateExample
         {
             base.OnEnterState(lastState);
 
+            controller.SetControl(controller.normalControl);
             controller.SetSpeed(controller.walkSpeed);
         }
 

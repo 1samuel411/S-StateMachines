@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Used to bind a generic data type to Getter and Setter function and have a delegate tied to it.
+    /// </summary>
+    /// <typeparam name="BindableType"></typeparam>
     [System.Serializable]
     public class Bindable<BindableType> : IBindable<BindableType>
     {

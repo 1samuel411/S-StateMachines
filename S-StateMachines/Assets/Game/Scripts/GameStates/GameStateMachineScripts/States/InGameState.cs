@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// The state where the player is able to move around and progress in the game.
+    /// Upon entering this state will load either a new game, or the currently opened scene if entering on the default state.
+    /// Checks for Esc to pause the game.
     /// </summary>
     public class InGameState : BaseGameStateMachineState
     {
@@ -24,12 +26,12 @@ namespace SLibrary.StateExample
             UIManager.instance.inGameController.gameObject.SetActive(true);
 
             // Load the game level
-            if (GameManager.instance.gameStateController.lastState != GameStateMachineStates.None)
-                LevelManager.instance.LoadLevel(GameProperties.instance.defaultLevel);
+            if (GameStateMachineController.instance.lastState != GameStateMachineStates.None)
+                LevelManager.instance.LoadLevel(GameProperties.instance.defaultLevel, false);
             else
-                LevelManager.instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+                LevelManager.instance.LoadLevel(SceneManager.GetActiveScene().buildIndex, false);
 
-            GameManager.instance.StartNewGame();
+            GameStateMachineController.instance.StartNewGame();
         }
 
         public override void OnExitState(GameStateMachineStates nextState)
@@ -47,7 +49,7 @@ namespace SLibrary.StateExample
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                GameManager.instance.gameStateController.SetState(GameStateMachineStates.Paused);
+                GameStateMachineController.instance.SetState(GameStateMachineStates.Paused);
             }
         }
 

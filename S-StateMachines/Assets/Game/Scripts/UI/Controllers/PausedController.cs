@@ -4,17 +4,20 @@ using UnityEngine;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// The Paused controller lets you resume or exit the game.
+    /// </summary>
     public class PausedController : Controller<PausedView, PausedModel>
     {
         
         public void Resume()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.InGame);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.InGame);
         }
 
         public void ExitGame()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.MainMenu);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.MainMenu);
         }
 
     }

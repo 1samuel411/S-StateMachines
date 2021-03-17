@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace SLibrary.StateMachines.ScriptableController
 {
+    /// <summary>
+    /// This scriptable object is used to list all the states being used. Utilizes Odin Inspector for its custom editor functionality. 
+    /// Odin Inspector isn't typical of my tools, all my tools are mostly written from scratch but this was a total Odin Inspector dependency with the inspector.
+    /// </summary>
     [CreateAssetMenu(fileName = "New Scriptable State Controller", menuName = "SLibrary/Scriptable State Controller", order = 0)]
     public class ScriptableStateController : ScriptableObject
     {

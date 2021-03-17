@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Displays the user's lives and scores. Using a highly optimized method of binding data and listening for changes.
+    /// </summary>
     public class InGameController : Controller<InGameView, InGameModel>
     {
         private void OnEnable()
         {
-            GameManager.instance.GetGameData().lives.OnUpdate += RefreshLives;
-            GameManager.instance.GetGameData().score.OnUpdate += RefreshScore;
+            GameStateMachineController.instance.GetGameData().lives.OnUpdate += RefreshLives;
+            GameStateMachineController.instance.GetGameData().score.OnUpdate += RefreshScore;
         }
 
         private void OnDisable()
         {
-            GameManager.instance.GetGameData().lives.OnUpdate -= RefreshLives;
-            GameManager.instance.GetGameData().score.OnUpdate -= RefreshScore;
+            GameStateMachineController.instance.GetGameData().lives.OnUpdate -= RefreshLives;
+            GameStateMachineController.instance.GetGameData().score.OnUpdate -= RefreshScore;
         }
 
         void RefreshLives(int val)

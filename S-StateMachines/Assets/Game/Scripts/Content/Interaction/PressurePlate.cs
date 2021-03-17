@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Let's you specify a unity event for when a collider's trigger is entered or exited. Used to drive progress in the game. User needs to hit the pressure plate and it'll either load the next level or end the game.
+    /// </summary>
     public class PressurePlate : MonoBehaviour
     {
 
@@ -26,8 +29,8 @@ namespace SLibrary.StateExample
         /// <param name="level"></param>
         public void LoadLevelEvent(int level)
         {
-            LevelManager.instance.LoadLevel(level);
-            GameManager.instance.GetGameData().score.SetValue(GameManager.instance.GetGameData().score.GetValue() + 100);
+            LevelManager.instance.LoadLevel(level, true);
+            GameStateMachineController.instance.IncrementScore(100);
         }
 
         /// <summary>
@@ -37,7 +40,7 @@ namespace SLibrary.StateExample
         /// <param name="level"></param>
         public void GameWin()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.GameOver);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.GameOver);
         }
     }
 }

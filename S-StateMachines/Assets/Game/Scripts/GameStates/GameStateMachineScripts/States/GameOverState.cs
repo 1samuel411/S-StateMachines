@@ -3,7 +3,8 @@ using UnityEngine;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// Pauses the game and displays the game over UI, and hides the in-game UI
+    /// Will resume upon leaving
     /// </summary>
     public class GameOverState : BaseGameStateMachineState
     {

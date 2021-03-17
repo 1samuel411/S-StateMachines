@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// UI manager automatically disables all UI and keeps references to the canvas and controllers.
+/// </summary>
 public class UIManager : MonoBehaviour
 {
 

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// This state is the first state loaded when playing the final build. 
     /// </summary>
     public class MainMenuState : BaseGameStateMachineState
     {
@@ -13,7 +13,7 @@ namespace SLibrary.StateExample
             return base.CanEnter(lastState);
         }
 
-        public override async void OnEnterState(GameStateMachineStates lastState)
+        public override void OnEnterState(GameStateMachineStates lastState)
         {
             base.OnEnterState(lastState);
 

@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace SLibrary.StateMachines.ScriptableController
 {
+    /// <summary>
+    /// Handles all the code generation. It's a bit messy, use the regions for organization.
+    /// </summary>
     public class GenerateScripts : ScriptableObject
     {
 

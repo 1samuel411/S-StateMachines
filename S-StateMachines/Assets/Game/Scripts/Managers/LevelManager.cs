@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Manages the Levels for us. Automatically initializes player when loading a game scene
+    /// </summary>
     public class LevelManager : MonoBehaviour
     {
 
@@ -15,16 +18,25 @@ namespace SLibrary.StateExample
             instance = this;    
         }
 
-        public void LoadLevel(int buildIndex)
+        public void LoadLevel(int buildIndex, bool force = false)
         {
-            SceneManager.LoadSceneAsync(buildIndex).completed += (x) =>
+            // Check if already loaded in level
+            if(SceneManager.GetActiveScene().buildIndex == buildIndex && !force)
             {
-                if (IsGameScene(buildIndex))
-                {
-                    GameManager.instance.InitializePlayer();
+                LevelWasLoaded();
+                return;
+            }
 
-                }
-            };
+            // Load the new level
+            SceneManager.LoadSceneAsync(buildIndex).completed += (x) => LevelWasLoaded();
+        }
+
+        private void LevelWasLoaded()
+        {
+            if (IsGameScene(SceneManager.GetActiveScene().buildIndex))
+            {
+                GameStateMachineController.instance.InitializePlayer();
+            }
         }
 
         private static bool IsGameScene(int buildIndex)

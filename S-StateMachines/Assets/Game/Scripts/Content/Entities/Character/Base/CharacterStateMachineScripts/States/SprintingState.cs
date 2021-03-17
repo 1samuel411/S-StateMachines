@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// Sets the character speed to be the sprint speed. Return to walking when releasing shift. Follows the rest of the Walking logic
     /// </summary>
     public class SprintingState : BaseCharacterStateMachineState
     {
@@ -16,6 +16,7 @@ namespace SLibrary.StateExample
         {
             base.OnEnterState(lastState);
 
+            controller.SetControl(controller.normalControl);
             controller.SetSpeed(controller.sprintSpeed);
         }
 

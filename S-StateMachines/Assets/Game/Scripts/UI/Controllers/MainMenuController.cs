@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Allows the user to Play the game from the main menu.
+    /// </summary>
     public class MainMenuController : Controller<MainMenuView, MainMenuModel>
     {
         
         public void PlayGame()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.InGame);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.InGame);
         }
 
     }

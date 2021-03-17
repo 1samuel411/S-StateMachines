@@ -4,17 +4,20 @@ using UnityEngine;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Used to allow the user to play again or quit after winning or losing
+    /// </summary>
     public class GameOverController : Controller<GameOverView, GameOverModel>
     {
         
         public void PlayAgain()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.InGame);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.InGame);
         }
 
         public void MainMenu()
         {
-            GameManager.instance.gameStateController.SetState(GameStateMachineStates.MainMenu);
+            GameStateMachineController.instance.SetState(GameStateMachineStates.MainMenu);
         }
 
     }

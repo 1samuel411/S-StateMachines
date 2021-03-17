@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Follows the player controller around forever if it exists.
+    /// </summary>
     public class CameraController : MonoBehaviour
     {
         public Vector3 offset;
@@ -11,9 +14,9 @@ namespace SLibrary.StateExample
 
         public void LateUpdate()
         {
-            if (GameManager.instance != null && GameManager.instance.GetSpawnedPlayer() != null)
+            if (GameStateMachineController.instance != null && GameStateMachineController.instance.GetSpawnedPlayer() != null)
             {
-                transform.position = Vector3.Lerp(transform.position, GameManager.instance.GetSpawnedPlayer().transform.position + offset, followSpeed * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, GameStateMachineController.instance.GetSpawnedPlayer().transform.position + offset, followSpeed * Time.deltaTime);
             }
         }
     }

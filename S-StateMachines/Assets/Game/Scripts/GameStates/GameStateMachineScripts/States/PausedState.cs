@@ -3,7 +3,8 @@ using UnityEngine;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// Pauses the game and displays the pause UI.
+    /// Checks for esc input to exit state.
     /// </summary>
     public class PausedState : BaseGameStateMachineState
     {
@@ -39,7 +40,7 @@ namespace SLibrary.StateExample
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                GameManager.instance.gameStateController.SetState(GameStateMachineStates.InGame);
+                GameStateMachineController.instance.SetState(GameStateMachineStates.InGame);
             }
         }
 

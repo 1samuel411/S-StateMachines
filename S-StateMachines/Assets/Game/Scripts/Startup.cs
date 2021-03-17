@@ -4,21 +4,23 @@ using UnityEngine.SceneManagement;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Starts the managers and UI.
+    /// Detects what level is currently loaded and initializes the game state manager accordingly
+    /// </summary>
     public class Startup
     {
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void OnRuntimeMethodLoad()
         {
-            GameObject gameManager = GameObject.Instantiate(GameProperties.instance.gameManagerPrefab);
-            GameObject.DontDestroyOnLoad(gameManager);
-            GameObject uiManager = GameObject.Instantiate(GameProperties.instance.uiManagerPrefab);
-            GameObject.DontDestroyOnLoad(uiManager);
+            GameObject managers = GameObject.Instantiate(GameProperties.instance.managersPrefab);
+            GameObject.DontDestroyOnLoad(managers);
 
             // Check if loaded in the main menu scene
             if (SceneManager.GetActiveScene().buildIndex == GameProperties.instance.mainMenuScene)
             {
-                GameManager.instance.gameStateController.SetState(GameStateMachineStates.MainMenu);
+                GameStateMachineController.instance.SetState(GameStateMachineStates.MainMenu);
                 return;
             }
 
@@ -27,7 +29,7 @@ namespace SLibrary.StateExample
             {
                 if (GameProperties.instance.gameScenes[i] == SceneManager.GetActiveScene().buildIndex)
                 {
-                    GameManager.instance.gameStateController.SetState(GameStateMachineStates.InGame);
+                    GameStateMachineController.instance.SetState(GameStateMachineStates.InGame);
                     break;
                 }
             }

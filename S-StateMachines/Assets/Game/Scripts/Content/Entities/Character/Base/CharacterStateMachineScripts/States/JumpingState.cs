@@ -3,7 +3,7 @@ using UnityEngine;
 namespace SLibrary.StateExample
 {
     /// <summary>
-    /// The template for a state object
+    /// Automatically performs a jump if entered. Only able to enter if you're not grounded, unless you're falling
     /// </summary>
     public class JumpingState : BaseCharacterStateMachineState
     {
@@ -24,6 +24,7 @@ namespace SLibrary.StateExample
             
             enterTime = Time.time;
 
+            controller.SetControl(controller.jumpControl);
             controller.Jump();
         }
 
@@ -36,7 +37,9 @@ namespace SLibrary.StateExample
         {
             base.Update();
 
-            if(controller.IsGrounded() && Time.time >= enterTime + timeToExit)
+            controller.SetInputVector();
+
+            if (controller.IsGrounded() && Time.time >= enterTime + timeToExit)
             {
                 controller.SetState(controller.lastState);
             }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace SLibrary.StateExample
 {
+    /// <summary>
+    /// Allows for a generic scriptable object that is stored in the Resources path under the Data/ folder. Has a method to allow for scriptable object creation or auto select existing one.
+    /// <typeparam name="ScriptableObjT"></typeparam>
     public class InstancedScriptableObject<ScriptableObjT> : ScriptableObject where ScriptableObjT : ScriptableObject
     {
         public const string resourcesPath = "Data/";
@@ -27,7 +30,6 @@ namespace SLibrary.StateExample
             }
         }
         private static ScriptableObjT _instance;
-        private readonly string insertPath;
 
         [ListDrawerSettings(ShowIndexLabels = true, NumberOfItemsPerPage = 15)]
 
