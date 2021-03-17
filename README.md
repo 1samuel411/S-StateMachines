@@ -54,6 +54,7 @@ This example is to give you an idea of how you can drive your game content using
 - Bindable (Used to bind the lives and score values to a refresh delegate used by the UI to trigger an update)
 - InstancedScriptableObject (Creates instances of singleton scriptable objects, used to manage the GameProperties, consisting of any configurations or references used in the game)
 - Model-View-Controller UI (Based on my original implementation here https://samuelarminana.com/index.php/2019/02/11/mvc-in-unitys-ui/)
+- Game Starter (Automatically detects what level is opened when the game starts in the editor and creates the Game Manager and UI)
 
 The game example is powered by only two state machines, Game State Machine and Character State Machine, shown here,
 
