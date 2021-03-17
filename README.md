@@ -1,6 +1,9 @@
 # S-StateMachines
 
-S-StateMachines is a tool and workflow for creating State Machines in C# and Unity.
+S-StateMachines is a tool to enhance your workflow when creating State Machines in C# and Unity.
+
+Navigate to the Package folder to view the asset itself. S-StateMachines/S-StateMachines/Packages/com.slibrary.sstatemachines/
+This repository is acting as a container for the sample project with the S-StateMachines asset as a package.
 
 ## Code Generation
 - Create a root folder in the path of the ScriptableStateController named, <INSERTNAME>Scripts'.  
@@ -38,35 +41,21 @@ This example named StateMachine, has two states, StateA and StateB, with no defa
 ### Process going from State A to State B
 The CanEnter method on the current state, will either accept or deny the state change, if its accepted the OnExit method will be called for the current state, followed by OnEnter on the next state which will now become the current state.
 
-![Flow](http://samuelarminana.com/u/1bb192819-345f-4bce-b206-84116683e9d8.png)
-
 # Dependencies
 This asset is dependent on [Odin Inspector](https://odininspector.com/), a premium Unity Asset which allows you to customize the editor/insepctor as well as provide a serialization library. 
 
 Because this is a premium asset it is excluded from this source code. Please purchase and install the asset to use it.
 
 
-# Example Uses
-This example is to give you an idea of how you can drive your game content using state machines.
+# Sample Project
+![1b9d2d556-a29f-4d63-80cf-b9af8c3fb521](https://user-images.githubusercontent.com/79631955/111406659-11227d00-86a9-11eb-8df5-970b5fed6c38.gif)
 
-The Scenes,
-- Game (Empty scene that is initialized with all the prefabs defined in our ReferenceManager scriptable object)
-- Level1 (A scene with a Main Camera, SpawnPoint, and Platforms)
+This example is to give you an idea of how you can drive your game content using state machines. This example project comes with a few other features used commonly in my workflow,
+- Bindable (Used to bind the lives and score values to a refresh delegate used by the UI to trigger an update)
+- InstancedScriptableObject (Creates instances of singleton scriptable objects, used to manage the GameProperties, consisting of any configurations or references used in the game)
+- Model-View-Controller UI (Based on my original implementation here https://samuelarminana.com/index.php/2019/02/11/mvc-in-unitys-ui/)
 
-Three state machines,
-- Core Game
-  - Initialize
-  - Splash Screen
-  - Main Menu
-  - In-Game
-- Main Menu
-  - Play
-  - Settings
-  - Quit
-- Player Controller
-  - Walk
-  - Sprint
-  - Jump
-  - Falling
+The game example is powered by only two state machines, Game State Machine and Character State Machine, shown here,
 
-I am working on implementing this exact layout in my current game and will provide an example project when possible.
+![image](https://user-images.githubusercontent.com/79631955/111406933-7b3b2200-86a9-11eb-982e-c5a17af48550.png)
+![image](https://user-images.githubusercontent.com/79631955/111406992-9312a600-86a9-11eb-8e48-2184f5d4c315.png)
