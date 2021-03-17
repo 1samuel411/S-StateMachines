@@ -2,8 +2,8 @@
 
 S-StateMachines is a tool to enhance your workflow when creating State Machines in C# and Unity. This asset allows you to define states in a scriptable object, with an optional default state, and the asset will generate C# Scripts in the folder of the scriptable asset. The code generated follows a very structured template. This asset is stable and used in various projects. If any errors are encountered please create an issue ticket.
 
-Navigate to the Package folder to view the asset itself. S-StateMachines/S-StateMachines/Packages/com.slibrary.sstatemachines/
-This repository is acting as a container for the sample project with the S-StateMachines asset as a package.
+Note: Navigate to the Package folder to view the asset itself, as this repository contains an example project with the asset installed as a package.
+Package Folder: S-StateMachines/Packages/com.slibrary.sstatemachines/
 
 ## Code Generation
 - Create a root folder in the path of the ScriptableStateController named, <INSERTNAME>Scripts'.  
