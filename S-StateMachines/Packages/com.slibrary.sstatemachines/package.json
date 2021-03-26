@@ -6,14 +6,14 @@
   "unity": "2020.1",
   "unityRelease": "0b5",
   "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    "StateMachines",
+    "Code Generation",
+    "Unity"
   ],
   "author": {
-    "name": "Unity",
-    "email": "unity@example.com",
-    "url": "https://www.unity3d.com"
+    "name": "Samuel",
+    "email": "armi.sam99@gmail.com",
+    "url": "https://samuelarminana.com/"
   },
   "type": "tool",
   "hideInEditor": false
