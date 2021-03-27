@@ -1,3 +1,8 @@
+### Install through Unity Package Manager (UPM)
+
+Select Add, then Add Package from git URL - https://github.com/1samuel411/S-StateMachines.git?path=/S-StateMachines/Packages/com.slibrary.sstatemachines
+* Requires Odin - Inspector and Serializer - https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041
+
 # S-StateMachines
 
 S-StateMachines is a tool to enhance your workflow when creating State Machines in C# and Unity. This asset allows you to define states in a scriptable object, with an optional default state, and the asset will generate C# Scripts in the folder of the scriptable asset. The code generated follows a very structured template. This asset is stable and used in various projects. If any errors are encountered please create an issue ticket.
