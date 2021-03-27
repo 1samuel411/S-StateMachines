@@ -1,6 +1,8 @@
 ### Install through Unity Package Manager (UPM)
 
-Select Add, then Add Package from git URL - ```https://github.com/1samuel411/S-StateMachines.git?path=/S-StateMachines/Packages/com.slibrary.sstatemachines```
+Select Add, then Add Package from git URL -
+
+```https://github.com/1samuel411/S-StateMachines.git?path=/S-StateMachines/Packages/com.slibrary.sstatemachines```
 * Requires Odin - Inspector and Serializer - https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041
 
 # S-StateMachines
