@@ -222,7 +222,8 @@ namespace SLibrary.StateMachines.ScriptableController
                     .Replace("SNAMESPACE_ENTRY", controller.namespaceName)    // Namespace
                     .Replace("SSTATES_ENUM_ENTRY", enumName)    // Enum name
                     .Replace("SSTATE_NAME_ENTRY", controller.states[i].name.Replace(" ", ""))   // Enum Value
-                    .Replace("SSTATE_INSTANCE_ENTRY", controller.states[i].name.Replace(" ", "") + "State");  // Class to add
+                    .Replace("SSTATE_INSTANCE_ENTRY", controller.states[i].name.Replace(" ", "") + "State")  // Class to add
+                    .Replace("SSTATECONTROLLER_ENTRY", controllerName + "Controller");  // Add reference to the base controller
             }
             baseControllerTemplate = baseControllerTemplate.Replace("// ADD_CASE_ENTRIES_ENTRY", enumText);
             // Replace Base State class name
@@ -284,29 +285,33 @@ namespace SLibrary.StateMachines.ScriptableController
                     }
 
                     string stateNamePath = statesFolderPath + stateName + ".cs";
-                    string stateContent = File.ReadAllText(stateNamePath);
-                    // Update namespaces
-                    if (namespaceChanged)
+
+                    if (File.Exists(stateNamePath))
                     {
-                        stateContent = stateContent.Replace("namespace " + previousNamespace, "namespace " + controller.namespaceName);
+                        string stateContent = File.ReadAllText(stateNamePath);
+                        // Update namespaces
+                        if (namespaceChanged)
+                        {
+                            stateContent = stateContent.Replace("namespace " + previousNamespace, "namespace " + controller.namespaceName);
+                        }
+                        // Update State Machine nmae
+                        if (nameChanged)
+                        {
+                            string previousNameRaw = previousName.Replace(" ", "");
+                            stateContent = stateContent.Replace("Base" + previousNameRaw + "State", "Base" + controllerName + "State");
+                            stateContent = stateContent.Replace("(" + previousNameRaw + "States", "(" + controllerName + "States");
+                        }
+                        // Update State name
+                        if (stateName != cachedStateName)
+                        {
+                            stateContent = stateContent.Replace(cachedStateName, stateName);
+                        }
+                        File.WriteAllText(stateNamePath, stateContent);
+                        controller.generatedStates[generatedStateIndex] = controller.states[i];
+                        Debug.Log("[Generation] !Updated State File!");
+                        #endregion
+                        continue;
                     }
-                    // Update State Machine nmae
-                    if (nameChanged)
-                    {
-                        string previousNameRaw = previousName.Replace(" ", "");
-                        stateContent = stateContent.Replace("Base" + previousNameRaw + "State", "Base" + controllerName + "State");
-                        stateContent = stateContent.Replace("(" + previousNameRaw + "States", "(" + controllerName + "States");
-                    }
-                    // Update State name
-                    if (stateName != cachedStateName)
-                    {
-                        stateContent = stateContent.Replace(cachedStateName, stateName);
-                    }
-                    File.WriteAllText(stateNamePath, stateContent);
-                    controller.generatedStates[generatedStateIndex] = controller.states[i];
-                    Debug.Log("[Generation] !Updated State File!");
-                    #endregion
-                    continue;
                 }
 
                 // A new state was added, generate the scripts
@@ -322,6 +327,7 @@ namespace SLibrary.StateMachines.ScriptableController
                     stateTemplate = stateTemplate.Replace("SSTATE_INSTANCE_ENTRY", generatedStateName); // Class Name
                     stateTemplate = stateTemplate.Replace("BASE_SSTATE_ENTRY", baseStateControllerName); // Inherited Class Name
                     stateTemplate = stateTemplate.Replace("SSTATES_ENUM_ENTRY", enumName);  // Enum Name
+                    stateTemplate = stateTemplate.Replace("SSTATECONTROLLER_ENTRY", controllerName + "Controller");  // Add reference to the base controller
                     File.WriteAllText(generatedStateNamePath, stateTemplate);
                     Debug.Log("[Generation] !Generated State " + controller.states[i].name + "!");
                 }

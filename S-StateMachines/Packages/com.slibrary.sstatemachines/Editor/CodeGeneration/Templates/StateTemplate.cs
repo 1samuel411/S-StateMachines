@@ -1,29 +1,32 @@
-﻿namespace SNAMESPACE_ENTRY
+﻿using SLibrary.StateMachines;
+
+namespace SNAMESPACE_ENTRY
 {
     /// <summary>
     /// The template for a state object
     /// </summary>
-    public class SSTATE_INSTANCE_ENTRY : BASE_SSTATE_ENTRY
+
+    [System.Serializable]
+    public struct SSTATE_INSTANCE_ENTRY : IState<SSTATES_ENUM_ENTRY>
     {
-        public override bool CanEnter(SSTATES_ENUM_ENTRY lastState)
-        {
-            return base.CanEnter(lastState);
+        /// <summary>
+        /// The generated Controller script for this state machine
+        /// </summary>
+        private SSTATECONTROLLER_ENTRY Controller;
+
+        IStateMachine<SSTATES_ENUM_ENTRY> IState<SSTATES_ENUM_ENTRY>.Controller { get => Controller; set => Controller = value as SSTATECONTROLLER_ENTRY; }
+
+        public bool CanEnter(SSTATES_ENUM_ENTRY lastState) 
+        { 
+            return true;
         }
 
-        public override void OnEnterState(SSTATES_ENUM_ENTRY lastState)
-        {
-            base.OnEnterState(lastState);
-        }
-
-        public override void OnExitState(SSTATES_ENUM_ENTRY nextState)
-        {
-            base.OnExitState(nextState);
-        }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
+        public void OnEnterState(SSTATES_ENUM_ENTRY lastState) { }
+        public void OnExitState(SSTATES_ENUM_ENTRY nextState) { }
+        public void Update() { }
+        public void LateUpdate() { }
+        public void FixedUpdate() { }
+        public void OnDrawGizmos() { }
+        public void OnRenderObject() { }
     }
 }

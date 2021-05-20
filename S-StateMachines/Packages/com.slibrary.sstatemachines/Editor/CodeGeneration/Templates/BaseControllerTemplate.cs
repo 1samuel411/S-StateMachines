@@ -36,24 +36,24 @@ namespace SNAMESPACE_ENTRY
     }
 
     [System.Serializable]
-    public class BASE_SSTATE_ENTRY : IState<SSTATES_ENUM_ENTRY>
+    public struct BASE_SSTATE_ENTRY : IState<SSTATES_ENUM_ENTRY>
     {
         /// <summary>
         /// The generated Controller script for this state machine
         /// </summary>
-        protected SSTATECONTROLLER_ENTRY controller;
+        private SSTATECONTROLLER_ENTRY controller;
         public IStateMachine<SSTATES_ENUM_ENTRY> Controller
         {
             get { return controller; }
             set { controller = value as SSTATECONTROLLER_ENTRY; }
         }
-        public virtual bool CanEnter(SSTATES_ENUM_ENTRY lastState) { return true; }
-        public virtual void OnEnterState(SSTATES_ENUM_ENTRY lastState) { }
-        public virtual void OnExitState(SSTATES_ENUM_ENTRY nextState) { }
-        public virtual void Update() { }
-        public virtual void LateUpdate() { }
-        public virtual void FixedUpdate() { }
-        public virtual void OnDrawGizmos() { }
-        public virtual void OnRenderObject() { }
+        public bool CanEnter(SSTATES_ENUM_ENTRY lastState) { return true; }
+        public void OnEnterState(SSTATES_ENUM_ENTRY lastState) { }
+        public void OnExitState(SSTATES_ENUM_ENTRY nextState) { }
+        public void Update() { }
+        public void LateUpdate() { }
+        public void FixedUpdate() { }
+        public void OnDrawGizmos() { }
+        public void OnRenderObject() { }
     }
 }
