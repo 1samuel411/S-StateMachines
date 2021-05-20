@@ -1,19 +1,19 @@
 {
   "name": "com.slibrary.sstatemachines",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "displayName": "S-State Machines",
-  "description": "This is an example package",
+  "description": "S-StateMachines is a tool to enhance your workflow when creating State Machines in C# and Unity. This asset allows you to define states in a scriptable object, with an optional default state, and the asset will generate C# Scripts in the folder of the scriptable asset. The code generated follows a very structured template. This asset is stable and used in various projects. If any errors are encountered please create an issue ticket.",
   "unity": "2020.1",
   "unityRelease": "0b5",
   "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    "StateMachines",
+    "Code Generation",
+    "Unity"
   ],
   "author": {
-    "name": "Unity",
-    "email": "unity@example.com",
-    "url": "https://www.unity3d.com"
+    "name": "Samuel",
+    "email": "armi.sam99@gmail.com",
+    "url": "https://samuelarminana.com/"
   },
   "type": "tool",
   "hideInEditor": false
