@@ -60,6 +60,7 @@ namespace SLibrary.StateMachines.ScriptableController
 #endif
         }
 
+#if UNITY_EDITOR
         /// <summary>
         /// IF DOESNT EXIST | Create a folder in the path of the ScriptableStateController named, <INSERTNAME>Scripts',
         /// IF DOESNT EXIST | Create folders within that called, 'Base' and 'States'
@@ -69,9 +70,11 @@ namespace SLibrary.StateMachines.ScriptableController
         /// </summary>
         public static async Task RegenerateScripts(ScriptableStateController controller)
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR_OSX
+            string path = Path.GetDirectoryName(AssetDatabase.GetAssetPath(controller)) +"/"; 
+#elif UNITY_EDITOR_WIN
             string path = Path.GetFullPath(Path.Combine(AssetDatabase.GetAssetPath(controller), @"..\"));
-
+#endif
             // Ex: Assets/StateMachines/ExampleStateController.asset
             // Will become, Assets/StateMachines/ExampleStateControllerScripts/
             string controllerName = controller.name.Replace(" ", "");
@@ -272,12 +275,12 @@ namespace SLibrary.StateMachines.ScriptableController
                 {
                     #region UPDATE STATE
                     Debug.Log("[Generation] ...Updating " + controller.states[i].name + "State File... Namespace Changed: " + namespaceChanged + ", Name Changed: " + nameChanged);
-                    
+
                     string stateName = controller.states[i].name.Replace(" ", "") + "State";
                     string cachedStateName = controller.generatedStates[generatedStateIndex].name.Replace(" ", "") + "State";
 
                     // Update file name if name changed
-                    if(stateName != cachedStateName)
+                    if (stateName != cachedStateName)
                     {
                         string oldPath = statesFolderPath + cachedStateName + ".cs";
                         string newPath = statesFolderPath + stateName + ".cs";
