@@ -31,6 +31,18 @@ namespace SLibrary.StateMachines
         public delegate void OnStateChange(T from, T to);
         public OnStateChange onStateChange;
 
+        public T CurrentState => currentState;
+
+        public T LastState => lastState;
+
+        object IStateMachine.CurrentState => currentState;
+
+        object IStateMachine.LastState => lastState;
+
+        public float LastTransitionTime => lastTransitionTime;
+
+        public float LastTransitionUnscaledTime => lastTransitionUnscaledTime;
+
         // ***********************************************************************
         // ************************** Unity Methods ******************************
         // ***********************************************************************
@@ -168,13 +180,9 @@ namespace SLibrary.StateMachines
                 lastState = currentState;
                 currentState = newState;
 
-                T tempState = currentState;
                 // Call enter state on new state
                 if (state != null)
                     state.OnEnterState(lastState);
-
-                if (tempState.Equals(currentState) == false)
-                    return true;
 
                 // Record time
                 lastTransitionTime = Time.time;
@@ -191,6 +199,11 @@ namespace SLibrary.StateMachines
             }
 
             return false;
+        }
+
+        public bool SetState(object state, bool forceChange = false)
+        {
+            throw new NotImplementedException();
         }
     }
 }
