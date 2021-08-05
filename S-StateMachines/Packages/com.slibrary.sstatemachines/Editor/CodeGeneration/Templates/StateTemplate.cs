@@ -21,6 +21,9 @@ namespace SNAMESPACE_ENTRY
             return true;
         }
 
+        // Used on a case by case basis, not required
+        public bool IsLoaded { get => false; }
+
         public void OnEnterState(SSTATES_ENUM_ENTRY lastState) { }
         public void OnExitState(SSTATES_ENUM_ENTRY nextState) { }
         public void Update() { }

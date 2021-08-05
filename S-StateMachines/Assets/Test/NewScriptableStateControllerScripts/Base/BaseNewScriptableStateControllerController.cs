@@ -56,6 +56,7 @@ namespace Example.States
             get { return controller; }
             set { controller = value as NewScriptableStateControllerController; }
         }
+        public bool IsLoaded { get => true; }
         public bool CanEnter(NewScriptableStateControllerStates lastState) { return true; }
         public void OnEnterState(NewScriptableStateControllerStates lastState) { }
         public void OnExitState(NewScriptableStateControllerStates nextState) { }

@@ -15,6 +15,7 @@ namespace Example.States
         private NewScriptableStateControllerController Controller;
 
         IStateMachine<NewScriptableStateControllerStates> IState<NewScriptableStateControllerStates>.Controller { get => Controller; set => Controller = value as NewScriptableStateControllerController; }
+        public bool IsLoaded { get => true; }
 
         public bool CanEnter(NewScriptableStateControllerStates lastState) 
         { 

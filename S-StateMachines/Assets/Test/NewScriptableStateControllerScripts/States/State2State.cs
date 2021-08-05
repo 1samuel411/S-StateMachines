@@ -13,6 +13,7 @@ namespace Example.States
         /// The generated Controller script for this state machine
         /// </summary>
         private NewScriptableStateControllerController Controller;
+        public bool IsLoaded { get => true; }
 
         IStateMachine<NewScriptableStateControllerStates> IState<NewScriptableStateControllerStates>.Controller { get => Controller; set => Controller = value as NewScriptableStateControllerController; }
 

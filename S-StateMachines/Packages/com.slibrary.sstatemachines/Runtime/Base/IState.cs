@@ -10,6 +10,8 @@ namespace SLibrary.StateMachines
         /// </summary>
         IStateMachine<T> Controller { get; set; }
 
+        bool IsLoaded { get; }
+
         // Methods the state can override
         bool CanEnter(T lastState); // Returns whether the state could be entered. Useful for checking if you can jump.
         void OnEnterState(T lastState); // Returns whether the state could be entered. Useful for checking if you can jump.

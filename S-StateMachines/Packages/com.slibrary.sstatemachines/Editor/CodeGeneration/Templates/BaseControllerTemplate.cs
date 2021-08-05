@@ -47,6 +47,9 @@ namespace SNAMESPACE_ENTRY
             get { return controller; }
             set { controller = value as SSTATECONTROLLER_ENTRY; }
         }
+
+        public bool IsLoaded { get => true; }
+
         public bool CanEnter(SSTATES_ENUM_ENTRY lastState) { return true; }
         public void OnEnterState(SSTATES_ENUM_ENTRY lastState) { }
         public void OnExitState(SSTATES_ENUM_ENTRY nextState) { }

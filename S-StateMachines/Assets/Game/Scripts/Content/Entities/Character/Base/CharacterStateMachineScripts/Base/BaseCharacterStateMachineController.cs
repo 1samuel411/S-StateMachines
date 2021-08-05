@@ -59,6 +59,7 @@ namespace SLibrary.StateExample
             get { return controller; }
             set { controller = value as CharacterStateMachineController; }
         }
+        public bool IsLoaded { get => true; }
         public virtual bool CanEnter(CharacterStateMachineStates lastState) { return true; }
         public virtual void OnEnterState(CharacterStateMachineStates lastState) { }
         public virtual void OnExitState(CharacterStateMachineStates nextState) { }
