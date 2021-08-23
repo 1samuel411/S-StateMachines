@@ -148,57 +148,52 @@ namespace SLibrary.StateMachines
                 return false;
             }
 
-            if (EqualityComparer<T>.Default.Equals(newState, currentState) == false || state == null)
+            IState<T> tempNewState = GetStateInstance(newState);
+            if (tempNewState == null)
             {
-                IState<T> tempNewState = GetStateInstance(newState);
-                if (tempNewState == null)
+                DebugMessage("Failed to GET STATE INSTANCE : " + newState.ToString() + " From, " + currentState.ToString() + (forceChange ? " <b>FORCED</b> " : ""), 2);
+                return false;
+            }
+            tempNewState.Controller = this;
+
+            // Check if we can enter this new state
+            if (forceChange == false)
+            {
+                if (!tempNewState.CanEnter(currentState))
                 {
-                    DebugMessage("Failed to GET STATE INSTANCE : " + newState.ToString() + " From, " + currentState.ToString() + (forceChange ? " <b>FORCED</b> " : ""), 2);
+                    if (debugLevel == 2 || debugLevel == 1)
+                        DebugMessage("Failed State Change during CAN ENTER: " + newState.ToString() + " From, " + currentState.ToString() + (forceChange ? " <b>FORCED</b> " : ""), 2);
                     return false;
                 }
-                tempNewState.Controller = this;
-
-                // Check if we can enter this new state
-                if (forceChange == false)
-                {
-                    if (!tempNewState.CanEnter(currentState))
-                    {
-                        if (debugLevel == 2 || debugLevel == 1)
-                            DebugMessage("Failed State Change during CAN ENTER: " + newState.ToString() + " From, " + currentState.ToString() + (forceChange ? " <b>FORCED</b> " : ""), 2);
-                        return false;
-                    }
-                }
-
-                // Call exit state on last state
-                if (state != null)
-                {
-                    state.OnExitState(newState);
-                }
-
-                // Update state
-                state = tempNewState;
-                lastState = currentState;
-                currentState = newState;
-
-                // Call enter state on new state
-                if (state != null)
-                    state.OnEnterState(lastState);
-
-                // Record time
-                lastTransitionTime = Time.time;
-                // Record time
-                lastTransitionUnscaledTime = Time.unscaledTime;
-
-                // Call delegate
-                onStateChange?.Invoke(lastState, currentState);
-
-                if (debugLevel == 2)
-                    DebugMessage("Successfully handled state switch to: " + currentState.ToString() + ", from: " + lastState, 1);
-
-                return true;
             }
 
-            return false;
+            // Call exit state on last state
+            if (state != null)
+            {
+                state.OnExitState(newState);
+            }
+
+            // Update state
+            state = tempNewState;
+            lastState = currentState;
+            currentState = newState;
+
+            // Call enter state on new state
+            if (state != null)
+                state.OnEnterState(lastState);
+
+            // Record time
+            lastTransitionTime = Time.time;
+            // Record time
+            lastTransitionUnscaledTime = Time.unscaledTime;
+
+            // Call delegate
+            onStateChange?.Invoke(lastState, currentState);
+
+            if (debugLevel == 2)
+                DebugMessage("Successfully handled state switch to: " + currentState.ToString() + ", from: " + lastState, 1);
+
+            return true;
         }
 
         public bool SetState(object state, bool forceChange = false)
