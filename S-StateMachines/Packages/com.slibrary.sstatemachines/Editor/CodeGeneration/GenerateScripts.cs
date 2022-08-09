@@ -70,10 +70,10 @@ namespace SLibrary.StateMachines.ScriptableController
         /// </summary>
         public static async Task RegenerateScripts(ScriptableStateController controller)
         {
-#if UNITY_EDITOR_OSX
-            string path = Path.GetDirectoryName(AssetDatabase.GetAssetPath(controller)) +"/"; 
-#elif UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN
             string path = Path.GetFullPath(Path.Combine(AssetDatabase.GetAssetPath(controller), @"..\"));
+#else
+            string path = Path.GetDirectoryName(AssetDatabase.GetAssetPath(controller)) +"/"; 
 #endif
             // Ex: Assets/StateMachines/ExampleStateController.asset
             // Will become, Assets/StateMachines/ExampleStateControllerScripts/
